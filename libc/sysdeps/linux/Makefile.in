@@ -11,3 +11,7 @@ subdirs += libc/sysdeps/linux/$(TARGET_ARCH) libc/sysdeps/linux/common
 -include $(top_srcdir)libc/sysdeps/linux/$(TARGET_ARCH)/Makefile.arch
 include $(top_srcdir)libc/sysdeps/linux/Makefile.commonarch
 include $(top_srcdir)libc/sysdeps/linux/common/Makefile.in
+
+# provide an empty rule for those archs that do not need it
+libc_arch_headers:
+libc_arch_headers_clean:
