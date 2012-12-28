@@ -681,6 +681,19 @@ config UCLIBC_SUSV3_LEGACY
 
 	  WARNING! ABI incompatibility.
 
+config UCLIBC_HAS_CONTEXT_FUNCS
+	bool "Use obsolescent context control functions"
+	depends on UCLIBC_SUSV3_LEGACY && ARCH_HAS_UCONTEXT
+	help
+	  Add into library the SuSv3 obsolescent functions used for context
+	  control. The setcontext family allows the implementation in C of
+	  advanced control flow patterns such as iterators, fibers, and
+	  coroutines. They may be viewed as an advanced version of
+	  setjmp/longjmp; whereas the latter allows only a single non-local jump
+	  up the stack, setcontext allows the creation of multiple cooperative
+	  threads of control, each with its own stack.
+	  These functions are: setcontext, getcontext, makecontext, swapcontext.
+
 config UCLIBC_SUSV3_LEGACY_MACROS
 	bool "Enable SuSv3 LEGACY macros"
 	help
